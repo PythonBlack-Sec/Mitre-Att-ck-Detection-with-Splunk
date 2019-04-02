@@ -1,8 +1,8 @@
-##Technique Description
+## Technique Description
 
 
-##Assumptions
+## Assumptions
 
-##Execution (test script used)
+## Execution (test script used)
 
-##Detection -- Visibility -- Filter/ Correlation Rule
+## Detection -- Visibility -- Filter/ Correlation Rule
