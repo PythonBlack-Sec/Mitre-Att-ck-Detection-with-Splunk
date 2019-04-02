@@ -1,4 +1,4 @@
-# Mitre Att&ck Detection with Splunk
+# Mitre Att&ck Detection with Splunk :+1:
 
 Within our Github repository we have developed Splunk filters for a few of the common vulnerabilities within the MITRE ATT&CK Framework. Within this repository we will be focusing on the following vulnerabilities: 
 
