@@ -1,4 +1,4 @@
-## Technique Description
+## Technique Description - Jorin 
 
 Adversaries will likely look for details about the network configuration and settings of systems they access or through information discovery of remote systems. Several operating system administration utilities exist that can be used to gather this information. Examples include Arp, ipconfig/ifconfig, nbtstat, and route.
 
