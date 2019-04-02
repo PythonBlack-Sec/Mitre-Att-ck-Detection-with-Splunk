@@ -5,7 +5,7 @@ Adversaries will likely look for details about the network configuration and set
 
 ## Execution (test script used)
 
-**Potential Attacks: **ipconfig /all
+** Potential Attacks: **ipconfig /all
 netsh interface show
 arp -a
 nbtstat -n
