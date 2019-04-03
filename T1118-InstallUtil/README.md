@@ -1,16 +1,17 @@
 ## Technique Description
 
-Adversaries will likely look for details about the network configuration and settings of systems they access or through information discovery of remote systems. Several operating system administration utilities exist that can be used to gather this information. Examples include Arp, ipconfig/ifconfig, nbtstat, and route.
+InstallUtil is a command line tool used for installations as well as uninstallation of different types of resources with the help of executing specific installer components within the .NET binaries. They can be found within the .NET directory of the windows file systems. A second use case for InstallUtil is to bypass process whitelisting while using attributes from binary which execute the class decorated with the attribute ```[System.CompnetModel.RunInstaller(true)]```
 
 
 ## Execution (test script used)
 
-**Potential Attacks:** ipconfig /all
-netsh interface show
-arp -a
-nbtstat -n
-net config
+**Potential Attacks:** 
+Attack 1: ```C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /target:library T1118.cs```
+Attack 2: ```C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /U #{filename}```
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
-**Filter:** ("Name='CommandLine'>ipconfig  /all" OR "Name='CommandLine'>ipconfig") OR ("netsh.exe" interface ip show"" OR "ARP.EXE" OR "nbtstat.exe" OR "net1 config")
+**Filter:** 
+Filter 1: ```((source="wineventlog:microsoft-windows-powershell/operational" OR cmd.exe OR source="wineventlog:microsoft-windows-sysmon/operational" )  AND ("csc.exe  /target:library")) OR ((source="wineventlog:microsoft-windows-powershell/operational" OR cmd.exe OR source="wineventlog:microsoft-windows-powershell/operational" ) AND ("InstallUtil.exe  /logfile= /LogToConsole=false /U"))```
+
+Filter 2: ```(source="wineventlog:microsoft-windows-powershell/operational" OR cmd.exe OR source="wineventlog:microsoft-windows-powershell/operational" ) AND ("InstallUtil.exe  /logfile= /LogToConsole=false /U")```
