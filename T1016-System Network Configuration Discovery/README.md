@@ -13,6 +13,6 @@ net config
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
-**Filter:** ("Name='CommandLine'>ipconfig  /all" OR "Name='CommandLine'>ipconfig") OR ("netsh.exe" interface ip show"" OR "ARP.EXE" OR "nbtstat.exe" OR "net1 config")
+**Filter:** ```("Name='CommandLine'>ipconfig  /all" OR "Name='CommandLine'>ipconfig") OR ("netsh.exe" interface ip show"" OR "ARP.EXE" OR "nbtstat.exe" OR "net1 config")```
 
 An attacker will usually first list the interfaces using ipconfig, and then he/she might use other commands to list other network connections/sessions. 
