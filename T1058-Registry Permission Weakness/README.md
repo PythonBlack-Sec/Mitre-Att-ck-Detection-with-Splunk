@@ -1,6 +1,6 @@
-## Technique Description - Jorin 
+## Technique Description - Jorin DELETE
 
-Adversaries will likely look for details about the network configuration and settings of systems they access or through information discovery of remote systems. Several operating system administration utilities exist that can be used to gather this information. Examples include Arp, ipconfig/ifconfig, nbtstat, and route.
+Registry keys play a virtal role and as such are a main target to adversaries looking to obtian persistence within a system. As such the permissions to access and modify them should be controlled but there are tool that can modify them if the permissions are not set appropriately. Some of those tools are as follows: controller, sc.exe, PowerShell and Reg.
 
 
 ## Execution (test script used)
