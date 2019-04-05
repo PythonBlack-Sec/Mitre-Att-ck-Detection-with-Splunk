@@ -8,13 +8,13 @@ For this box, we are assuming that the target is a Windows Server as the likelin
 
 ## Execution (test script used)
 
-**Potential Attacks:** Get-WindowsFeature -Name Hyper-V -ComputerName WIN-TKG4GPI458E
-Install-WindowsFeature -Name Hyper-V -ComputerName WIN-TKG4GPI458E -IncludeManagementTools
+**Potential Attacks:** ```Get-WindowsFeature -Name Hyper-V -ComputerName WIN-TKG4GPI458E
+Install-WindowsFeature -Name Hyper-V -ComputerName WIN-TKG4GPI458E -IncludeManagementTools```
 
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
-**Filter:** (source="wineventlog:microsoft-windows-powershell/operational" OR cmd.exe or powershell.exe) AND ("Message=ParameterBinding(Install-WindowsFeature): name="Name"; value="Microsoft.Windows.ServerManager.Commands.Feature"" OR "ParameterBinding(Install-WindowsFeature): name="IncludeManagementTools"; value="True"" OR "Message=ParameterBinding(New-VM): name="Name";") AND NOT ("UserID='S-1-5-21domain'")
+**Filter:** ```(source="wineventlog:microsoft-windows-powershell/operational" OR cmd.exe or powershell.exe) AND ("Message=ParameterBinding(Install-WindowsFeature): name="Name"; value="Microsoft.Windows.ServerManager.Commands.Feature"" OR "ParameterBinding(Install-WindowsFeature): name="IncludeManagementTools"; value="True"" OR "Message=ParameterBinding(New-VM): name="Name";") AND NOT ("UserID='S-1-5-21domain'")```
 
 
 This rule detects an instance where the Hyper-V is attempted to be installed in a Windows Server or Install a new Virtual Machine and the user executed the command is not an Administrator. 
