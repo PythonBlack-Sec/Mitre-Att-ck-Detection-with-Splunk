@@ -5,7 +5,6 @@ Adversaries will likely look for details about the network configuration and set
 
 ## Execution (test script used)
 
-<<<<<<< HEAD
 **Potential Attacks:** cmd.exe /c copy %SystemRoot%\System32\cmd.exe %SystemRoot%\Temp\lsass.exe
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
