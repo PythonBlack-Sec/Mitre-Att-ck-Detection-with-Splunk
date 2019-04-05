@@ -8,11 +8,11 @@ If adversaries can access these scripts, they may insert additional code into th
 
 ## Execution (test script used)
 
-**Potential Attacks:** REG.exe ADD HKCU\Environment /v UserInitMprLogonScript /t REG_MULTI_SZ /d “cmd.exe /c calc.exe”
+**Potential Attacks:** ```REG.exe ADD HKCU\Environment /v UserInitMprLogonScript /t REG_MULTI_SZ /d “cmd.exe /c calc.exe”```
 
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
-**Filter:** (source="wineventlog:microsoft-windows-sysmon/operational" OR cmd.exe OR powershell.exe ) AND ("reg.exe" ADD HKCU\\Environment /v UserInitMprLogonScript"")
+**Filter:** ```(source="wineventlog:microsoft-windows-sysmon/operational" OR cmd.exe OR powershell.exe ) AND ("reg.exe" ADD HKCU\\Environment /v UserInitMprLogonScript"") ```
 
 An attacker can use cmd or powershell to use regedit/reg.exe to add a LogonScript under the HKCU\\Environment key. 

@@ -1,16 +1,18 @@
 ## Technique Description
 
-Adversaries will likely look for details about the network configuration and settings of systems they access or through information discovery of remote systems. Several operating system administration utilities exist that can be used to gather this information. Examples include Arp, ipconfig/ifconfig, nbtstat, and route.
+Utilities such as at and schtasks, along with the Windows Task Scheduler, can be used to schedule programs or scripts to be executed at a date and time. A task can also be scheduled on a remote system, provided the proper authentication is met to use RPC and file and printer sharing is turned on. Scheduling a task on a remote system typically required being a member of the Administrators group on the the remote system. 
+
+An adversary may use task scheduling to execute programs at system startup or on a scheduled basis for persistence, to conduct remote Execution as part of Lateral Movement, to gain SYSTEM privileges, or to run a process under the context of a specified account.
 
 
 ## Execution (test script used)
 
-**Potential Attacks:** ipconfig /all
-netsh interface show
-arp -a
-nbtstat -n
-net config
+**Potential Attacks:** ```SCHTASKS /Create /SC ONCE /TN spawn /TR C:\windows\system32\cmd.exe /ST 12:00```
+
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
-**Filter:** ("Name='CommandLine'>ipconfig  /all" OR "Name='CommandLine'>ipconfig") OR ("netsh.exe" interface ip show"" OR "ARP.EXE" OR "nbtstat.exe" OR "net1 config")
+**Filter:** ```("cmd.exe" OR "powershell.exe" OR source="wineventlog:microsoft-windows-sysmon/operational" ) AND (“SCHTASKS /Create /SC ONCE /TN spawn /TR)```
+
+The attacker can use the SCHTASKS command to schedule a task at system start up. This command can be exectued in both cmd or powershell. 
+
