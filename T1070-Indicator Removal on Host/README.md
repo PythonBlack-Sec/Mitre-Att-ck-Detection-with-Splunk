@@ -20,5 +20,5 @@ This technique is used to delete or modify artifacts left on a system by the att
 
 **Filter:** 
 
-```(SourceName=Microsoft-Windows-Eventlog AND "TaskCategory=Log clear")```
-```(source="wineventlog:microsoft-windows-sysmon/operational" AND fsutil usn deletejournal AND fsutil.exe)```
+Rule 1: ```(SourceName=Microsoft-Windows-Eventlog AND "TaskCategory=Log clear")``` \
+Rule 2: ```(source="wineventlog:microsoft-windows-sysmon/operational" AND fsutil usn deletejournal AND fsutil.exe)```
