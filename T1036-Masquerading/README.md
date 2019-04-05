@@ -5,12 +5,10 @@ Adversaries will likely look for details about the network configuration and set
 
 ## Execution (test script used)
 
-**Potential Attacks:** ipconfig /all
-netsh interface show
-arp -a
-nbtstat -n
-net config
+**Potential Attacks:** cmd.exe /c copy %SystemRoot%\System32\cmd.exe %SystemRoot%\Temp\lsass.exe
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
-**Filter:** ("Name='CommandLine'>ipconfig  /all" OR "Name='CommandLine'>ipconfig") OR ("netsh.exe" interface ip show"" OR "ARP.EXE" OR "nbtstat.exe" OR "net1 config")
+**Filter:** (source="wineventlog:microsoft-windows-sysmon/operational" OR source="wineventlog:microsoft-windows-powershell/operational" OR "cmd.exe") AND cmd.exe /c copy AND NOT ("UserID='S-1-5-21domain'")
+
+
