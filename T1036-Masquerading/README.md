@@ -5,12 +5,12 @@ Adversaries will likely look for details about the network configuration and set
 
 ## Execution (test script used)
 
-**Potential Attacks:** ipconfig /all
+**Potential Attacks:** ```ipconfig /all
 netsh interface show
 arp -a
 nbtstat -n
-net config
+net config```
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
-**Filter:** ("Name='CommandLine'>ipconfig  /all" OR "Name='CommandLine'>ipconfig") OR ("netsh.exe" interface ip show"" OR "ARP.EXE" OR "nbtstat.exe" OR "net1 config")
+**Filter:** ```("Name='CommandLine'>ipconfig  /all" OR "Name='CommandLine'>ipconfig") OR ("netsh.exe" interface ip show"" OR "ARP.EXE" OR "nbtstat.exe" OR "net1 config")```
