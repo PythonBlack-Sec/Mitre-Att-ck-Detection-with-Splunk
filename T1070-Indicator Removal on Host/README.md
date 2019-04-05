@@ -1,16 +1,24 @@
 ## Technique Description
 
-Adversaries will likely look for details about the network configuration and settings of systems they access or through information discovery of remote systems. Several operating system administration utilities exist that can be used to gather this information. Examples include Arp, ipconfig/ifconfig, nbtstat, and route.
+This technique is used to delete or modify artifacts left on a system by the attacker in order to evade detection. Examples include modifying system logs or malware files in quarantine. One of the most prominent log locations is within the Windows event application. Adversaries can use the following commands to clear system, application, and security logs:
 
+```wevtutil cl system```
+```wevtutil cl application```
+```wevtutil cl security```
 
 ## Execution (test script used)
 
-**Potential Attacks:** ipconfig /all
-netsh interface show
-arp -a
-nbtstat -n
-net config
+**Potential Attacks:** 
+
+```wevtutil cl system```
+```wevtutil cl application```
+```wevtutil cl security```
+```fsutil usn deletejournal /D C:```
+
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
-**Filter:** ("Name='CommandLine'>ipconfig  /all" OR "Name='CommandLine'>ipconfig") OR ("netsh.exe" interface ip show"" OR "ARP.EXE" OR "nbtstat.exe" OR "net1 config")
+**Filter:** 
+
+```(SourceName=Microsoft-Windows-Eventlog AND "TaskCategory=Log clear")```
+```(source="wineventlog:microsoft-windows-sysmon/operational" AND fsutil usn deletejournal AND fsutil.exe)```
