@@ -1,7 +1,6 @@
 ## Technique Description
 
-Adversaries will likely look for details about the network configuration and settings of systems they access or through information discovery of remote systems. Several operating system administration utilities exist that can be used to gather this information. Examples include Arp, ipconfig/ifconfig, nbtstat, and route.
-
+This technique serves to gain critical information about the a target's system. Such information includes type of operating system, hardware specifications, service packs, and details regarding architecture. 
 
 ## Execution (test script used)
 
