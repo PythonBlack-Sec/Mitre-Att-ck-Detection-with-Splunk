@@ -11,7 +11,7 @@ arp -a
 nbtstat -n
 net config```
 
-![](images/T1016_Execute.PNG)
+![](../images/T1016_Execute.PNG)
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
