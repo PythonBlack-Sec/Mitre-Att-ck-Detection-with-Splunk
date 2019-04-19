@@ -9,6 +9,8 @@ and
 
 ```forfiles /p c:\windows\system32 /m notepad.exe /c cmd.exe```
 
+![](../images/T1202_Execute.PNG)
+
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
 **Filter:** 
