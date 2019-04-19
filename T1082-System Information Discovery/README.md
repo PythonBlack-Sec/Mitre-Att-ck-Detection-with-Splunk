@@ -8,6 +8,8 @@ This technique serves to gain critical information about the a target's system. 
 
 **Windows Systems:** ```ver``` ```Systeminfo```
 
+![](../images/T1082_Execute.PNG)
+
 **Mac OS:** ```systemsetup``` ```system_profiler```
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
