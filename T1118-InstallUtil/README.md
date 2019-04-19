@@ -7,7 +7,10 @@ InstallUtil is a command line tool used for installations as well as uninstallat
 
 **Potential Attacks:** 
 Attack 1: ```C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /target:library T1118.cs```
+
 Attack 2: ```C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe /logfile= /LogToConsole=false /U #{filename}```
+
+![](../images/T1118_Execute.PNG)
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
