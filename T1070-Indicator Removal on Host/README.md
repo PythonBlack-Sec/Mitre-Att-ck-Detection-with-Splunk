@@ -15,6 +15,8 @@ This technique is used to delete or modify artifacts left on a system by the att
 ```wevtutil cl security```
 ```fsutil usn deletejournal /D C:```
 
+![](../images/T1070_Execute.PNG)
+
 
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
