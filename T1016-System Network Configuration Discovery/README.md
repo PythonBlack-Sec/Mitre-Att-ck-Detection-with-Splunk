@@ -11,6 +11,8 @@ arp -a
 nbtstat -n
 net config```
 
+![](images/T1016_Execute.PNG)
+
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
 **Filter:** ```("Name='CommandLine'>ipconfig  /all" OR "Name='CommandLine'>ipconfig") OR ("netsh.exe" interface ip show"" OR "ARP.EXE" OR "nbtstat.exe" OR "net1 config")```
