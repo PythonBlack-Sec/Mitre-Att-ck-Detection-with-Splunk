@@ -6,6 +6,8 @@ This occurs when a payload or any malicious file is modified so that its locatio
 
 **Potential Attacks:** ```cmd.exe /c copy %SystemRoot%\System32\cmd.exe %SystemRoot%\Temp\lsass.exe```
 
+![](../images/T1036_Execute.PNG)
+
 ## Detection -- Visibility -- Filter/ Correlation Rule
 
 **Filter:** ```(source="wineventlog:microsoft-windows-sysmon/operational" OR source="wineventlog:microsoft-windows-powershell/operational" OR "cmd.exe") AND cmd.exe /c copy AND NOT ("UserID='S-1-5-21domain'")```
